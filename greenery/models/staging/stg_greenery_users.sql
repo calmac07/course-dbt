@@ -24,6 +24,3 @@ with users_sources as ( select * from {{ source('src_greenery' , 'users') }} )
     )
 
     select * from renamed_recast 
-
-
-
