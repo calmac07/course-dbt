@@ -5,6 +5,9 @@ models:
     description: aggregated session level events data
     columns:
       - name: session_id
+        tests:
+          - not_null
+          - unique
       - name: user_id
       - name: event_count
       - name: interacted_product_count
