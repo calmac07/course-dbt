@@ -1,0 +1,39 @@
+version: 2
+
+models:
+  - name: int_session_events_agg
+    description: aggregated session level events data
+    columns:
+      - name: session_id
+      - name: user_id
+      - name: event_count
+      - name: interacted_product_count
+      - name: order_count    
+      - name: add_to_cart_count
+      - name: checkout_count
+      - name: page_view_count
+      - name: package_shipped_count
+
+  - name: int_session_lengths
+    description: session start and end information 
+    columns:
+      - name: session_id
+      - name: session_start
+      - name: session_end
+      - name: session_length_minutes
+   
+  - name: fct_sessions
+    description: session level event facts 
+    columns:
+      - name: session_id
+      - name: user_id
+      - name: event_count
+      - name: interacted_product_count
+      - name: order_count    
+      - name: add_to_cart_count
+      - name: checkout_count
+      - name: page_view_count
+      - name: package_shipped_count 
+      - name: session_start
+      - name: session_end
+      - name: session_length_minutes        
