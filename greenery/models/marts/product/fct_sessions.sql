@@ -9,7 +9,10 @@
 select 
 
     a.user_id
-    --,count(a.session_id)over(partition by a.user_id order by b.session_start asc ) as user_session_number
+    ,c.first_name
+    ,c.last_name
+    ,c.email
+    ,count(a.session_id)over(partition by a.user_id order by b.session_start asc ) as user_session_number
 
     ,a.session_id
     ,b.session_start
@@ -26,4 +29,6 @@ select
 
     from {{ ref ('int_session_events_agg') }} a
 
-    left join {{ ref ('int_session_lenghts') }} b using (session_id) 
+    left join {{ ref ('int_session_lengths') }} b using (session_id) 
+
+    left join {{ ref ('stg_greenery_users') }} c using (user_id) 

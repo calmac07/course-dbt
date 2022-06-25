@@ -27,6 +27,10 @@ models:
     columns:
       - name: session_id
       - name: user_id
+      - name: first_name
+      - name: last_name
+      - name: email    
+      - name: user_session_number
       - name: event_count
       - name: interacted_product_count
       - name: order_count    
