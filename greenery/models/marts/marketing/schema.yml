@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: fct_promos
+    description: aggregated order info at promo level (inlcuded no promo)
+    columns:
+      - name: promo_id
+        tests:
+          - unique
+      - name: current_status
+      - name: discount
+      - name: total_orders
+      - name: user_reach
+      - name: first_order
+      - name: latest_order
+      - name: total_order_cost
+      - name: associated_shipping_cost
+      - name: total_status_preperation
+      - name: total_status_delivered
+      - name: total_status_shipped 
