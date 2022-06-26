@@ -32,7 +32,7 @@ from {{ ref ('stg_greenery_events') }}
 
 select 
 
-     a.user_id
+     a.user_id as user_id
     ,first_activity
     ,latest_activity 
     ,(date_part('day', current_date - first_activity::timestamp )) as days_as_member

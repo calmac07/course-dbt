@@ -5,20 +5,33 @@
 }}
 
 
--- user_info, join to user_events_agg
--- plus geog info
+select
 
+   a.user_id
+  ,a.first_name
+  ,a.last_name
 
-SELECT
+  --,a.address_id
+  ,b.country
+  ,b.state
 
-  u.user_id,
-  u.first_name,
-  u.last_name,
+  ,c.first_activity
+  ,c.latest_activity 
+  ,c.days_as_member
+  ,c.total_sessions
+  ,c.total_active_minutes
 
+  ,c.total_events
+  ,c.total_products_interacted
+  ,c.total_orders
 
+  ,c.total_add_to_carts
+  ,c.total_checkouts
+  ,c.total_page_views
+  ,c.total_packages_shipped
 
-FROM {{ ref('stg_greenery_users') }} u
+from {{ ref('stg_greenery_users') }} a
 
-  left join 
+  left join {{ ref('stg_greenery_addresses') }} b using(address_id)
 
-
+  left join {{ ref('int_user_events_agg') }} c using (user_id) 
