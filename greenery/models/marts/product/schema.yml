@@ -50,3 +50,4 @@ models:
       - name: session_start
       - name: session_end
       - name: session_length_minutes        
+

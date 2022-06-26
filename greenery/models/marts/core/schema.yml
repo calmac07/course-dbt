@@ -1,0 +1,67 @@
+version: 2
+
+models:
+  - name: int_user_events_agg
+    description: aggregated user level events data
+    columns:
+      - name: user_id
+        tests:
+          - not_null
+          - unique
+      - name: first_activity
+      - name: latest_activity
+      - name: days_as_member
+      - name: total_sessions    
+      - name: total_active_minutes
+      - name: total_events
+      - name: total_products_interacted
+      - name: total_orders
+      - name: total_add_to_carts
+      - name: total_checkouts
+      - name: total_page_views
+      - name: total_packages_shipped
+
+models:
+  - name: dim_users
+    description: user dimension table
+    columns:
+      - name: user_id
+        tests:
+          - not_null
+          - unique
+      - name: first_name
+      - name: last_name
+      - name: country
+      - name: state    
+      - name: first_activity
+      - name: latest_activity
+      - name: days_as_member
+      - name: total_sessions    
+      - name: total_active_minutes
+      - name: total_events
+      - name: total_products_interacted
+      - name: total_orders
+      - name: total_add_to_carts
+      - name: total_checkouts
+      - name: total_page_views
+      - name: total_packages_shipped
+
+
+models:
+  - name: dim_products
+    description: product_id dimensions , orders and interactions
+    columns:
+      - name: product_id
+        tests:
+          - not_null
+          - unique
+      - name: name
+      - name: price
+      - name: inventory          
+      - name: total_user_reach
+      - name: total_interactions
+      - name: distinct_orders
+      - name: total_quanitity_ordered    
+      - name: add_to_cart_count
+      - name: page_view_count
+
